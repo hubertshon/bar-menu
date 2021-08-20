@@ -1,25 +1,37 @@
 <template>
-  <div class="bourbon-container">
+  <div class="container">
+    <button class="button-spirit"
+            :data-target="'#collapseTarget' + spirit.name" 
+            :href="'#collapseTarget' + spirit.name" 
+            data-toggle="collapse">
       <h1>{{ spirit.name }}</h1>
-      <div class="nameline"></div>
-      <div class="citrusgroup">
-        <h3 class="subcategory citrus">Citrus</h3>
-        <div class="drinklist">
-          <template v-for="drink in spirit.drinkList.citrus">
-            <h3> {{drink.name}}</h3>
-            <p>{{drink.ingredients}}</p>
-          </template>
+    </button>
+    <div class="nameline"></div>
+
+    <div class="collapse show" :id="'collapseTarget' + spirit.name">
+
+        <div class="row">
+          <div class="citrusgroup col-6">
+            <h3 class="subcategory citrus">Citrus</h3>
+            <div class="drinklist">
+              <template v-for="drink in spirit.drinkList.citrus">
+                <h3> {{drink.name}}</h3>
+                <p style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+              </template>
+            </div>
+          </div>
+        
+          <div class="spiritgroup col-6">
+            <h3 class="subcategory spirits" v-if="spirit.drinkList.spirits">Spirits</h3>
+            <div class="drinklist">
+              <template v-for="drink in spirit.drinkList.spirits">
+                <h3> {{drink.name}}</h3>
+                <p style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+              </template>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="spiritgroup">
-        <h3 class="subcategory">Spirits</h3>
-        <div class="drinklist">
-          <template v-for="drink in spirit.drinkList.spirits">
-            <h3> {{drink.name}}</h3>
-            <p>{{drink.ingredients}}</p>
-          </template>
-        </div>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -40,14 +52,26 @@ body {
     color: rgb(225, 225, 225);  
 }
 
-.bourbon-container {
-    margin: 1rem;
+.container {
+    margin: 1rem auto;
     text-align: left;
+}
+
+.button-spirit {
+  margin-top: 3rem;
+  background-color: rgb(67, 67, 67);
+  border: none;
+  color: rgb(225, 225, 225);  
+
+}
+
+.button-spirit:focus {
+    outline: 0 !important;
 }
 
 h1 {
   font-family: 'Antonio', sans-serif;
-  margin: 40px 0 20px;
+  /* margin: 40px 0 20px; */
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-left: 2.3rem;
@@ -81,8 +105,8 @@ a {
 }
 
 .spiritgroup {
-  float: right;
-  display: block;
+  /* float: right; */
+  /* display: block; */
 }
 
 .subcategory {
@@ -90,13 +114,20 @@ a {
   display: block;
   float: left;
   font-size: 0.6em;
+  font-weight: 600;
   transform: rotate(-90deg);
+  letter-spacing: 0.05em;
+
 }
 
 .drinklist {
   display: block;
   /* width: 45%; */
-  margin-left: 2.3rem;
+  margin: 1rem auto auto 2.3rem;
+}
+
+.drink {
+  margin-bottom: 5rem;
 }
 
 .nameline {
@@ -108,6 +139,9 @@ a {
 
 .citrus {
   color: rgb(67, 242, 67);
-  letter-spacing: 0.05em;
+}
+
+.spirits {
+  color: rgb(57, 186, 255);
 }
 </style>
