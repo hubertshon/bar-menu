@@ -10,8 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #ebebeb;
-  background-color: rgb(67, 67, 67);
+  color: #dedede;
+  background-color: rgb(55, 55, 55);
 }
 
 #nav {

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul>
-        <li v-for="ingredient in ingredients" v-on:click="toggleIngredient($event, ingredient)" :class="{'inactive' : ingredient.active === false }">{{ ingredient.name}}</li>
+        <li class="disable-select" v-for="ingredient in ingredients" v-on:click="toggleIngredient($event, ingredient)" :class="{'inactive' : ingredient.active === false }">{{ ingredient.name}}</li>
     </ul>
   </div>
 </template>
@@ -45,14 +45,13 @@ body {
 
 .container {
     margin: 1rem auto;
-    text-align: left;
+    text-align: center;
 }
 
 .button-ingredient {
   background-color: none; 
   border: none;
   color: rgb(225, 225, 225);  
-
 }
 
 .button-ingredient:focus {
@@ -87,7 +86,7 @@ ul {
   width: 90%;
   list-style-type: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 2rem auto 1rem auto;
 }
 
 li {
@@ -101,6 +100,14 @@ li {
   cursor: pointer;
 }
 
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
 .inactive {
   color: rgb(99, 99, 99) !important;
 }
@@ -109,19 +116,7 @@ a {
   color: #42b983;
 }
 
-.spiritgroup {
-  /* float: right; */
-  /* display: block; */
-}
 
-
-.bi-star-fill {
-  display: inline-block;
-  color: #FF522E;
-  margin: auto auto 1rem 0.75rem;
-  font-size: 0.7em;
-  vertical-align: middle;
-}
 
 
 </style>

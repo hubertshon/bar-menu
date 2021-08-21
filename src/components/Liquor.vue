@@ -6,15 +6,15 @@
             data-toggle="collapse">
       <h1>{{ spirit.name }}</h1>
     </button>
+    <i class="bi bi-chevron-down"></i>
     <div class="nameline"></div>
-
     <div class="collapse show" :id="'collapseTarget' + spirit.name">
         <div class="row"> 
           <div class="citrusgroup col-6">
             <h3 class="subcategory citrus">Citrus</h3>
             <div class="drinklist">
               <template v-for="drink in spirit.drinkList.citrus">
-                <h3 :class="{'inactive' : !drink.active }">{{drink.name}}</h3>
+                <h3 :class="{'inactive' : !drink.active }" class="drinktitle" >{{drink.name}} </h3>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
               </template>
@@ -25,7 +25,7 @@
             <h3 class="subcategory spirits" v-if="spirit.drinkList.spirits">Spirits</h3>
             <div class="drinklist">
               <template v-for="drink in spirit.drinkList.spirits">
-                <h3 :class="{'inactive' : !drink.active }"> {{drink.name}}</h3>
+                <h3 :class="{'inactive' : !drink.active }" class="drinktitle"> {{drink.name}}</h3>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ') }}</p>
               </template>
@@ -53,18 +53,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 body {
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(40, 40, 40);
     color: rgb(225, 225, 225);  
 }
 
 .container {
     margin: 1rem auto;
     text-align: left;
+    /* border: 5px solid blue; */
+
 }
 
 .button-spirit {
   margin-top: 3rem;
-  background-color: rgb(67, 67, 67);
+  background-color: rgb(55, 55, 55);
   border: none;
   color: rgb(225, 225, 225);
   cursor: pointer;
@@ -92,6 +94,14 @@ h3 {
   letter-spacing: 0.04em;
 }
 
+.drinktitle{ 
+  cursor: hover;
+}
+
+h1:hover, .drinktitle:hover {
+  color: white;
+}
+
 p {
   margin-top: 0;
   font-family: "Merriweather", serif;
@@ -115,8 +125,16 @@ a {
   /* display: block; */
 }
 
-.bi-star-fill {
+
+.bi-chevron-down {
   display: inline-block;
+  margin-left: 1rem;
+  font-size: 0.8em;
+  vertical-align: 12px;
+}
+
+.bi-star-fill {
+  display: inline;
   color: #FF522E;
   margin-left: 0.75rem;
   /* margin-bottom: 0.25rem; */

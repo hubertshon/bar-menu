@@ -5,8 +5,6 @@
     <Ingredients @toggle="toggleIngredient($event)" />
   <div v-for="spirit in spiritList">
     <Liquor :spirit="spirit" />
-    
-
     </div>
   </div>
 </template>
@@ -54,7 +52,7 @@ export default {
             {name: 'Tom Collins', ingredients: ['Gin', 'lemon juice', 's.syrup', 'soda'], category: "citrus", favorite: false, active: true },
             {name: 'Gin-gin Mule', ingredients: ['Gin', 'lime juice', 'mint leaves', 'ginger beer'], category: "citrus", favorite: false, active: true },
             {name: 'Gimlet', ingredients: ['Gin', 'lime juice', 's.syrup'], category: "citrus", favorite: false, active: true },
-            {name: 'Foghorn', ingredients: ['Gin', 'lime juice', 's.syrup', 'gingerbeer'], category: "citrus", favorite: false, active: true },
+            {name: 'Foghorn', ingredients: ['Gin', 'lime juice', 's.syrup', 'ginger beer'], category: "citrus", favorite: false, active: true },
             {name: 'Southside (NY)', ingredients: ['Gin', 'lemon juice', 's.syrup', 'mint'], category: "citrus", favorite: true, active: true },
           ],
           spirits: [
@@ -69,7 +67,7 @@ export default {
         name: "Rum",
         drinkList: {
           citrus: [
-            {name: 'Mojito', ingredients: ['Rum', 'lime juice', 'mint', 's.syrup'], category: "citrus", favorite: false, active: true },
+            {name: 'Mojito', ingredients: ['Rum', 'lime juice', 'mint', 's.syrup'], category: "citrus", favorite: true, active: true },
             {name: 'Daiquiri', ingredients: ['Rum', 'lime juice', 's.syrup'], category: "citrus", favorite: false, active: true },
             {name: "Cuba Libre", ingredients: ['Rum', 'coke', 'lime juice'], category: "citrus", favorite: false, active: true },
             {name: "Strawberry Sour", ingredients: ['Rum', 'strawberries', 'lime juice', 's.syrup'], category: "citrus", favorite: false, active: true }
