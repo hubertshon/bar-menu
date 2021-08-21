@@ -84,7 +84,7 @@ p {
 }
 
 ul {
-  width: 80%;
+  width: 90%;
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
@@ -102,7 +102,7 @@ li {
 }
 
 .inactive {
-  color: rgb(80, 80, 80) !important;
+  color: rgb(99, 99, 99) !important;
 }
 
 a {

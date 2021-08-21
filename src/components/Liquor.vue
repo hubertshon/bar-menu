@@ -16,7 +16,7 @@
               <template v-for="drink in spirit.drinkList.citrus">
                 <h3 :class="{'inactive' : !drink.active }">{{drink.name}}</h3>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
-                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
               </template>
             </div>
           </div>
@@ -27,7 +27,7 @@
               <template v-for="drink in spirit.drinkList.spirits">
                 <h3 :class="{'inactive' : !drink.active }"> {{drink.name}}</h3>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
-                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ') }}</p>
               </template>
             </div>
           </div>
@@ -43,6 +43,9 @@ export default {
   props: {
     msg: String,
     spirit: Object
+  },
+  methods: {
+
   }
 };
 </script>
@@ -142,7 +145,7 @@ a {
 }
 
 .inactive {
-  color: rgb(80, 80, 80);
+  color: rgb(99, 99, 99);
 }
 
 .nameline {
