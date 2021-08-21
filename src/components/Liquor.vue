@@ -9,14 +9,14 @@
     <div class="nameline"></div>
 
     <div class="collapse show" :id="'collapseTarget' + spirit.name">
-
-        <div class="row">
+        <div class="row"> 
           <div class="citrusgroup col-6">
             <h3 class="subcategory citrus">Citrus</h3>
             <div class="drinklist">
               <template v-for="drink in spirit.drinkList.citrus">
-                <h3> {{drink.name}}</h3>
-                <p style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+                <h3 :class="{'inactive' : !drink.active }">{{drink.name}}</h3>
+                <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
+                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
               </template>
             </div>
           </div>
@@ -25,17 +25,19 @@
             <h3 class="subcategory spirits" v-if="spirit.drinkList.spirits">Spirits</h3>
             <div class="drinklist">
               <template v-for="drink in spirit.drinkList.spirits">
-                <h3> {{drink.name}}</h3>
-                <p style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
+                <h3 :class="{'inactive' : !drink.active }"> {{drink.name}}</h3>
+                <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
+                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients}}</p>
               </template>
             </div>
           </div>
         </div>
     </div>
   </div>
-</template>
 
+</template>
 <script>
+
 export default {
   name: 'HelloWorld',
   props: {
@@ -61,8 +63,8 @@ body {
   margin-top: 3rem;
   background-color: rgb(67, 67, 67);
   border: none;
-  color: rgb(225, 225, 225);  
-
+  color: rgb(225, 225, 225);
+  cursor: pointer;
 }
 
 .button-spirit:focus {
@@ -79,6 +81,7 @@ h1 {
 }
 
 h3 {
+  display: inline-block;
   margin-bottom: 0.25rem;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -109,6 +112,15 @@ a {
   /* display: block; */
 }
 
+.bi-star-fill {
+  display: inline-block;
+  color: #FF522E;
+  margin-left: 0.75rem;
+  /* margin-bottom: 0.25rem; */
+  font-size: 0.8em;
+  vertical-align: 6px;
+}
+
 .subcategory {
   margin-top: 2rem;
   display: block;
@@ -117,7 +129,6 @@ a {
   font-weight: 600;
   transform: rotate(-90deg);
   letter-spacing: 0.05em;
-
 }
 
 .drinklist {
@@ -128,6 +139,10 @@ a {
 
 .drink {
   margin-bottom: 5rem;
+}
+
+.inactive {
+  color: rgb(80, 80, 80);
 }
 
 .nameline {
