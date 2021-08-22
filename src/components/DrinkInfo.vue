@@ -1,24 +1,66 @@
 <template>
   <div class="container">
     <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link text-light">History</a>
+        <li class="nav-item" v-on:click="clickTab('history')">
+            <a class="nav-link" :class="{ 'text-light' : this.selectTab ==='history'}">History</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link">Recipe</a>
+        <li class="nav-item" v-on:click="clickTab('recipe')">
+            <a class="nav-link" :class="{ 'text-light' : this.selectTab ==='recipe'}">Recipe</a>
         </li>
     </ul>
+
+    <div class="history" v-if="this.selectTab==='history'">
+      {{ drinkHistory }}
+    </div>
+
+    <div class="recipe" v-if="this.selectTab==='recipe'">
+      {{ drinkRecipe }}
+    </div>
+
+
   </div>
 </template>
 
 <script>
+import encyclopedia from '../static/drink_information.js'
+
 export default {
   name: 'DrinkInfo',
   props: {
-    drinkHistory: String, 
-    drinkRecipe: Array
+    drink: String,
+    tab: String 
   },
-  methods: {}
+  data: () => ({
+    drinkHistory: null,
+    drinkRecipe: null,
+    drinkTab: null,
+    selectTab: null
+  }),
+  created() {
+  },
+  mounted() {
+    // this.startTab();
+    this.findDrink(this.drink);
+    this.selectTab = this.tab;
+  },
+  methods: {
+    findDrink(drink) {
+      let drinkArray = encyclopedia.encyclopedia;
+      let foundEntry = drinkArray.find((item) => {
+        return item.name === drink;
+      });
+      this.drinkHistory = foundEntry.history;
+      this.drinkRecipe = foundEntry.recipe;
+    },
+    clickTab(clickedTab) {
+      if (clickedTab === 'history') {
+        this.selectTab = 'history';
+      } else if (clickedTab === 'recipe') {
+        this.selectTab = 'recipe';
+      }
+    }
+  },
+  
 };
 </script>
 
@@ -43,13 +85,15 @@ body {
     border-bottom: 1px solid rgb(91, 91, 91);
 }
 
+
+.nav-link {
+  padding-left: 0 !important;
+}
+
 .nav-link.active{
     border-bottom: none !important;
 }
 
-.nav-link:hover {
-
-}
 .nav-item  {
   border-color: gray;
   text-transform: uppercase;
@@ -58,7 +102,7 @@ body {
 }
 
 .nav-link:hover {
-    border: unset;
+  border: unset;
 }
 
 

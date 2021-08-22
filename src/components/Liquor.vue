@@ -6,14 +6,15 @@
             data-toggle="collapse"
             v-on:click="expandSpirit(spirit.name)">
       <h1>{{ spirit.name }}</h1>
+      <i class="bi bi-chevron-down" :class="{'openup' : checkSpirit(spirit.name), 'closeup' : !checkSpirit(spirit.name)}"></i>
     </button>
-    <i class="bi bi-chevron-down" :class="{'openup' : checkSpirit(spirit.name), 'closeup' : !checkSpirit(spirit.name)}"></i>
+    
     <div class="nameline"></div>
     <div class="collapse show" :id="'collapseTarget' + spirit.name">
         <div class="row">
 
           <div class="citrusgroup col-6" v-for="(property, flavor) in spirit.drinkList">
-            <h3 class="subcategory citrus">{{ flavor }}</h3>
+            <h3 class="subcategory" :class="{'citrus' : flavor === 'citrus', 'spirits' : flavor === 'spirits'}">{{ flavor }}</h3>
             <div class="drinklist">
               <template v-for="drink in property">
                 <h3 :id="'popover-button-' + drink.name" :class="{'inactive' : !drink.active }" class="drinktitle" tabindex="-1">{{drink.name}}</h3>
@@ -21,10 +22,10 @@
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
                 <div :id="'menupopover' + spirit.name"></div>
                 <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
-                  <button class="tooltip-button" v-on:click="launchDrinkModal('history')">
+                  <button class="tooltip-button" v-on:click="launchDrinkModal('history', drink.name)">
                   <i class="bi bi-book"></i><span>History</span>
                   </button>
-                  <button class="tooltip-button" v-on:click="launchDrinkModal('recipe')">
+                  <button class="tooltip-button" v-on:click="launchDrinkModal('recipe', drink.name)">
                   <i class="bi bi-list-check"></i><span>Recipe</span>
                   </button>
                 </b-popover>
@@ -33,26 +34,6 @@
               </template>
             </div>
           </div>
-        
-          <!-- <div class="spiritgroup col-6">
-            <h3 class="subcategory spirits">Spirits</h3>
-            <div class="drinklist">
-              <template v-for="(drink) in spirit.drinkList.spirits">
-                <h3 :id="'popover-button-' + drink.name" :class="{'inactive' : !drink.active }" class="drinktitle" tabindex="-1">{{drink.name}}</h3>
-                <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite == true"></i>
-                <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ') }}</p>
-                <div :id="'menupopover2' + spirit.name"></div>
-                <b-popover :container="'menupopover2' + spirit.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
-                  <button class="tooltip-button" v-on:click="launchDrinkModal('history')">
-                  <i class="bi bi-book"></i><span>History</span>
-                  </button>
-                  <button class="tooltip-button" v-on:click="launchDrinkModal('recipe')">
-                  <i class="bi bi-list-check"></i><span>Recipe</span>
-                  </button>
-                </b-popover>
-              </template>
-            </div>
-          </div> -->
         </div>
     </div>
 
@@ -60,16 +41,15 @@
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-wrapper">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog .modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <DrinkInfo />
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" @click="showModal = false">&times;</span>
+                  <DrinkInfo :drink="selectDrink" :tab="openTab" />
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="showModal = false">
+                    <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <!-- <div class="modal-body">
-                  
                 </div> -->
                 <!-- <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" @click="showModal = false">Close</button>
@@ -103,16 +83,19 @@ export default {
       gin: true,
       rum: true
     },
-    showModal: false
+    showModal: false,
+    openTab: null,
+    sentDrink: null
   }),
   methods: {
     expandSpirit(name) {
       let key = name.toLowerCase();
       this.spiritOpen[key] = !this.spiritOpen[key];
     },
-    launchDrinkModal(tab) {
+    launchDrinkModal(tab, sentDrink) {
       this.showModal = true;
-      console.log(this.showModal);
+      this.openTab = tab;
+      this.selectDrink = sentDrink;
     },
     checkSpirit(name) {
       let key = name.toLowerCase();
@@ -143,11 +126,15 @@ body {
 }
 
 .button-spirit {
+  display: inline-block;
   margin-top: 3rem;
+  margin-left: 2rem;
   background-color: rgb(55, 55, 55);
   border: none;
   color: rgb(225, 225, 225);
   cursor: pointer;
+  width: 250px;
+  text-align: left;
 }
 
 .button-spirit:focus {
@@ -159,7 +146,9 @@ h1 {
   /* margin: 40px 0 20px; */
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-left: 2.3rem;
+  text-align: left;
+  /* margin-left: 2.3rem; */
+  display: inline;
 
 }
 
@@ -176,7 +165,7 @@ h3 {
   cursor: pointer;
 }
 
-h1:hover, .drinktitle:hover {
+h1:hover, .button-spirit:hover {
   color: white;
 }
 
@@ -261,19 +250,17 @@ a {
 .popover {
   display: block;
   margin-left: 1rem;
-  box-shadow: rgba(4, 4, 4, 0.269) 0px 3px 12px 0px;
+  box-shadow: rgba(4, 4, 4, 0.79) 0px 7px 15px -6px;
   background-color: rgb(31, 31, 31);
-    width: 220px;
+  width: 250px;
+  height: 55px;
+  z-index: 9;
 
 } 
 
 .popover-body > span,
 .popover-body > i {
   color: rgb(193, 193, 193);
-}
-
-.popover .arrow {
-  background-color: ;
 }
 
 .closeup {
@@ -319,8 +306,8 @@ a {
 
 .tooltip-button {
   /* display: inline-block; */
-  height: 30px;
-  width: 80px;
+  height: 37px;
+  width: 95px;
   background-color: rgb(53, 53, 53);
   color: rgb(193, 193, 193);
   border-style: none;
@@ -328,9 +315,11 @@ a {
   margin: 0 0.5rem;
 }
 
+.tooltip-button:hover {
+  background-color: rgb(75, 75, 75);
+}
+
 .tooltip-button > i {
-  /* vertical-align: middle; */
-  /* margin-right: auto 0.15rem; */
   font-size: 0.8em;
   margin-right: 0.5rem;
 }
@@ -339,11 +328,13 @@ a {
   vertical-align: middle;
   text-transform: uppercase;
   font-size: 0.75em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
 }
 
 .modal-mask {
   position:absolute;
-  z-index:9;
+  z-index:10;
   top:0;
   right:0;
   bottom:0;
@@ -357,9 +348,32 @@ a {
   border-bottom: 0;
 }
 
+
 .modal-content { 
   background-color: rgb(53, 53, 53);
   font-family: "Lato", sans-serif;
+}
+
+
+
+.modal-dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    position: fixed;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+}
+
+
+@media(max-width: 768px) {
+  .modal-dialog {
+    min-height: calc(100vh - 20px);
+  }
 }
 
 .close {
