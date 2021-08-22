@@ -27,6 +27,10 @@
   color: #42b983;
 }
 
+.bs-popover-right > .arrow::after{
+  border-right-color: #1f1f1f !important;
+}
+
 @import'~bootstrap/dist/css/bootstrap.css'
 
 

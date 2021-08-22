@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/casaHLogo.png">
+    <img alt="logo" class="casalogo" src="../assets/casalogo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Ingredients @toggle="toggleIngredient($event)" />
   <div v-for="spirit in spiritList">
@@ -118,3 +118,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.home{
+  margin-top: 1rem;
+}
+</style>
