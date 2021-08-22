@@ -10,16 +10,17 @@
     <i class="bi bi-chevron-down" :class="{'openup' : checkSpirit(spirit.name), 'closeup' : !checkSpirit(spirit.name)}"></i>
     <div class="nameline"></div>
     <div class="collapse show" :id="'collapseTarget' + spirit.name">
-        <div class="row"> 
-          <div class="citrusgroup col-6">
-            <h3 class="subcategory citrus">Citrus</h3>
+        <div class="row">
+
+          <div class="citrusgroup col-6" v-for="(property, flavor) in spirit.drinkList">
+            <h3 class="subcategory citrus">{{ flavor }}</h3>
             <div class="drinklist">
-              <template v-for="(drink) in spirit.drinkList.citrus">
+              <template v-for="drink in property">
                 <h3 :id="'popover-button-' + drink.name" :class="{'inactive' : !drink.active }" class="drinktitle" tabindex="-1">{{drink.name}}</h3>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite === true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
                 <div :id="'menupopover' + spirit.name"></div>
-                <b-popover :container="'menupopover' + spirit.name" :target="'popover-button-' + drink.name" triggers="fcous" :key="drink.name" placement="right">
+                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
                   <button class="tooltip-button" v-on:click="launchDrinkModal('history')">
                   <i class="bi bi-book"></i><span>History</span>
                   </button>
@@ -33,7 +34,7 @@
             </div>
           </div>
         
-          <div class="spiritgroup col-6">
+          <!-- <div class="spiritgroup col-6">
             <h3 class="subcategory spirits">Spirits</h3>
             <div class="drinklist">
               <template v-for="(drink) in spirit.drinkList.spirits">
@@ -51,7 +52,7 @@
                 </b-popover>
               </template>
             </div>
-          </div>
+          </div> -->
         </div>
     </div>
 
@@ -89,7 +90,7 @@
 import DrinkInfo from '@/components/DrinkInfo.vue'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Liquor',
   components: {DrinkInfo},
   props: {
     msg: String,
