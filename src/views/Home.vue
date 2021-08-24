@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="logo" class="casalogo" src="../assets/casalogo.png">
+    <img alt="logo" class="casalogo" src="../assets/casalogo.svg">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Ingredients @toggle="toggleIngredient($event)" />
   <div v-for="spirit in spiritList">
@@ -121,5 +121,9 @@ export default {
 <style scoped>
 .home{
   margin-top: 1rem;
+}
+
+.casalogo {
+  width: 105px;
 }
 </style>

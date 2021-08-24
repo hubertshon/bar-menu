@@ -17,11 +17,11 @@
             <h3 class="subcategory" :class="{'citrus' : flavor === 'citrus', 'spirits' : flavor === 'spirits'}">{{ flavor }}</h3>
             <div class="drinklist">
               <template v-for="drink in property">
-                <h3 :id="'popover-button-' + drink.name" :class="{'inactive' : !drink.active }" class="drinktitle" tabindex="-1">{{drink.name}}</h3>
+                <h5 :id="'popover-button-' + drink.name" :class="{'inactive' : !drink.active }" class="drinktitle" tabindex="-1">{{drink.name}}</h5>
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite === true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
                 <div :id="'menupopover' + spirit.name"></div>
-                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
+                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="click" :key="drink.name" placement="right">
                   <button class="tooltip-button" v-on:click="launchDrinkModal('history', drink.name)">
                   <i class="bi bi-book"></i><span>History</span>
                   </button>
@@ -29,8 +29,6 @@
                   <i class="bi bi-list-check"></i><span>Recipe</span>
                   </button>
                 </b-popover>
-                
-                
               </template>
             </div>
           </div>
@@ -152,7 +150,16 @@ h1 {
 
 }
 
-h3 {
+h3, h4 {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+h5 {
   display: inline-block;
   margin-bottom: 0.25rem;
   font-family: 'Lato', sans-serif;
@@ -173,6 +180,7 @@ p {
   margin-top: 0;
   font-family: "Merriweather", serif;
   font-size: 0.8em;
+  font-weight: 300;
 }
 
 ul {
@@ -327,7 +335,7 @@ a {
 .tooltip-button > span {
   vertical-align: middle;
   text-transform: uppercase;
-  font-size: 0.75em;
+  font-size: 0.65em;
   font-weight: 300;
   letter-spacing: 0.1em;
 }

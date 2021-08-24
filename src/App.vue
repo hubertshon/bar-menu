@@ -31,6 +31,10 @@
   border-right-color: #1f1f1f !important;
 }
 
+.bs-popover-left > .arrow::after{
+  border-left-color: #1f1f1f !important;
+}
+
 @import'~bootstrap/dist/css/bootstrap.css'
 
 
