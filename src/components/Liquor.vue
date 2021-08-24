@@ -13,7 +13,7 @@
     <div class="collapse show" :id="'collapseTarget' + spirit.name">
         <div class="row">
 
-          <div class="citrusgroup col-6" v-for="(property, flavor) in spirit.drinkList">
+          <div class="citrusgroup col-md-6 col-sm-12" v-for="(property, flavor) in spirit.drinkList">
             <h3 class="subcategory" :class="{'citrus' : flavor === 'citrus', 'spirits' : flavor === 'spirits'}">{{ flavor }}</h3>
             <div class="drinklist">
               <template v-for="drink in property">
@@ -21,7 +21,7 @@
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite === true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
                 <div :id="'menupopover' + spirit.name"></div>
-                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="click" :key="drink.name" placement="right">
+                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
                   <button class="tooltip-button" v-on:click="launchDrinkModal('history', drink.name)">
                   <i class="bi bi-book"></i><span>History</span>
                   </button>
@@ -119,8 +119,6 @@ body {
 .container {
     margin: 1rem auto;
     text-align: left;
-    /* border: 5px solid blue; */
-
 }
 
 .button-spirit {
@@ -341,7 +339,7 @@ a {
 }
 
 .modal-mask {
-  position:absolute;
+  position: fixed;
   z-index:10;
   top:0;
   right:0;
@@ -349,7 +347,7 @@ a {
   left:0;
   background:rgba(0, 0, 0, 0.53);
   width:100%;
-  height:100vmax;
+  height: 10000px;
 }
 
 .modal-header {
