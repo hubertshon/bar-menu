@@ -35,6 +35,10 @@
   border-left-color: #1f1f1f !important;
 }
 
+.bs-popover-top> .arrow::after{
+  border-top-color: #1f1f1f !important;
+}
+
 @import'~bootstrap/dist/css/bootstrap.css'
 
 

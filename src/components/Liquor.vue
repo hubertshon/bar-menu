@@ -21,7 +21,7 @@
                 <i :class="{'inactive' : !drink.active }" class="bi bi-star-fill" v-if="drink.favorite === true"></i>
                 <p :class="{'inactive' : !drink.active }" style="margin-bottom: 1.75rem;">{{drink.ingredients.join(', ')}}</p>
                 <div :id="'menupopover' + spirit.name"></div>
-                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" placement="right">
+                <b-popover :container="'menupopover' + drink.name" :target="'popover-button-' + drink.name" triggers="focus" :key="drink.name" :placement="popoverStyle()">
                   <button class="tooltip-button" v-on:click="launchDrinkModal('history', drink.name)">
                   <i class="bi bi-book"></i><span>History</span>
                   </button>
@@ -39,7 +39,7 @@
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-wrapper">
-            <div class="modal-dialog .modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered .modal-sm " role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <DrinkInfo :drink="selectDrink" :tab="openTab" />
@@ -83,7 +83,8 @@ export default {
     },
     showModal: false,
     openTab: null,
-    sentDrink: null
+    sentDrink: null,
+    windowWidth: window.innerWidth
   }),
   methods: {
     expandSpirit(name) {
@@ -101,6 +102,14 @@ export default {
         return true;
       } else {
         return false;
+      }
+    },
+    popoverStyle() {
+      console.log(this.windowWidth);
+      if (this.windowWidth <= 568) {
+        return 'top';
+      } else {
+        return 'right';
       }
     }
   }
@@ -168,6 +177,14 @@ h5 {
 
 .drinktitle{ 
   cursor: pointer;
+}
+
+.drinktitle:active {
+  color: rgb(240, 240, 240);
+}
+
+.drinktitle:focus { 
+  outline: none;
 }
 
 h1:hover, .button-spirit:hover {
@@ -354,27 +371,14 @@ a {
   border-bottom: 0;
 }
 
+.modal-dialog {
+  min-height: calc(100vh - 20px);
+}
 
 .modal-content { 
   background-color: rgb(53, 53, 53);
   font-family: "Lato", sans-serif;
 }
-
-
-
-.modal-dialog {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: auto;
-    position: fixed;
-    margin: 0 auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-}
-
 
 @media(max-width: 768px) {
   .modal-dialog {
