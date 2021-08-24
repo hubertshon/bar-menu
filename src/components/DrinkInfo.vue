@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h5>{{ drink }} </h5>
     <ul class="nav">
         <li class="nav-item" v-on:click="clickTab('history')">
             <a class="nav-link" :class="{ 'text-light' : this.selectTab ==='history'}">History</a>
@@ -10,11 +11,13 @@
     </ul>
 
     <div class="history" v-if="this.selectTab==='history'">
-      {{ drinkHistory }}
+      <p>{{ drinkHistory }}</p>
     </div>
 
     <div class="recipe" v-if="this.selectTab==='recipe'">
-      {{ drinkRecipe }}
+      <ul>
+        <li v-for="step in drinkRecipe" v-html="step">{{ step }}</li>
+      </ul>
     </div>
 
 
@@ -78,6 +81,7 @@ body {
 
 .nav {
     border-bottom: none;
+    margin-bottom: 1rem;
 }
 
 
@@ -114,7 +118,15 @@ a:hover {
     color: rgb(201, 201, 201);
 }
 
+.history > p {
+  line-height: 1.5em;
 
+}
+
+.recipe ul li {
+  line-height: 1.75em;
+  font-size: 1.1em;
+}
 
 
 

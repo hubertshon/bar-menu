@@ -329,7 +329,7 @@ a {
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: 300;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 
 .modal-mask {
@@ -380,6 +380,10 @@ a {
   color: gray;
   border-style: none;
   text-shadow: none;
+}
+
+.close:hover{
+  color: rgb(179, 179, 179);
 }
 
 

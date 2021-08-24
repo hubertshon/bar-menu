@@ -31,7 +31,7 @@ export default {
             {name: 'Kentucky Mule', ingredients: ['Bourbon', 'lime juice', 's.syrup', 'ginger beer'], category: "citrus", favorite: true, active: true },
             {name: 'Bourbon Smash', ingredients: ['Bourbon', 'lemon wedges', 's.syrup', 'mint leaves'], category: "citrus", favorite: false, active: true },
             {name: 'Gold Rush', ingredients: ['Bourbon', 'honey syrup', 'lemon juice'], category: "citrus", favorite: false, active: true },
-            {name: 'Bourbon Sour', ingredients: ['Bourbon', 'lemon juice', '(egg white)', 's.syrup'], category: "citrus", favorite: false, active: true },
+            {name: 'Whiskey Sour', ingredients: ['Bourbon', 'lemon juice', '(egg white)', 's.syrup'], category: "citrus", favorite: false, active: true },
             {name: 'Strawberry Fix', ingredients: ['Bourbon', 'strawberry', 'lemon juice', 's.syrup'], category: "citrus", favorite: false, active: true },
             {name: 'Suffering Bastard', ingredients: ['Bourbon', 'Gin', 'lime juice', 'bitters', 'ginger beer', 's.syrup'], category: "citrus", favorite: false, active: true },
           ],
