@@ -187,6 +187,17 @@ export default {
       ]
     },
     {
+      name: "Bee's Knees",
+      history: "With prohibition restrictions in place, people had to go to extreme lengths to produce and obtain alcohol. Even the name 'bathtub gin', which was served during this time, indicates the lengths people would go to produce alcohol. It is no wonder that these spirits were crude and carried harsh flavors. In response, cocktails would be created to smooth out alcohol, the Bee's Knees being one of the most popular solutions.",
+      recipe: [
+        '2 oz. gin',
+        '&frac34; oz. lemon juice',
+        '&frac12; oz. honey syrup',
+        'Shake with ice & double strain',
+        'Garnish with lemon peel'
+      ]
+    },
+    {
       name: 'Negroni',
       history: "The Negroni is based off the Americano, a cocktail originating in the late 1800s in northern Italy. Popular story tells us that Count Camillo Negroni asked his bartender to strengthen his choice cocktail, the Americano. The bartender replaced the soda with gin and the rest is history. The Negroni is one the most popular cocktails in the modern day.",
       recipe: [

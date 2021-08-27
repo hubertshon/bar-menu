@@ -54,6 +54,7 @@ export default {
             {name: 'Gimlet', ingredients: ['Gin', 'lime juice', 's.syrup'], category: "citrus", favorite: false, active: true },
             {name: 'Foghorn', ingredients: ['Gin', 'lime juice', 's.syrup', 'ginger beer'], category: "citrus", favorite: false, active: true },
             {name: 'Southside (NY)', ingredients: ['Gin', 'lemon juice', 's.syrup', 'mint'], category: "citrus", favorite: true, active: true },
+            {name: "Bee's Knees", ingredients: ['Gin', 'lemon juice', 'honey syrup'], category: "citrus", favorite: false, active: true },
           ],
           spirits: [
             {name: 'Negroni', ingredients: ['Gin', 'Campari', 'sweet vermouth', 'bitters'], category: "spirit", favorite: true, active: true },
