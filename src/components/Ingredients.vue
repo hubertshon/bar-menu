@@ -23,7 +23,8 @@ export default {
       {name: "maraschino", active: true },
       {name: "mint", active: true },
       {name: "ginger beer", active: true },
-      {name: "s.syrup", active: true }
+      {name: "s.syrup", active: true },
+      {name: "strawberries", active: true }
     ],
   }),
 

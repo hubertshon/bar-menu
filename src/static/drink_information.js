@@ -45,17 +45,18 @@ export default {
         'Double strain and garnish with orange or bitters'
       ]
     },
-    { 
-      name: 'Strawberry Fix', 
-      history: 'Fixes are one of the oldest, if not the oldest style of cocktail on record.', 
+    {
+      name: 'Strawberry Fix',
+      history: 'Fixes are one of the oldest, if not the oldest style of cocktail on record.',
       recipe: [
-        '2 oz. bourbon', 
-        '&frac34; simple syrup', 
-        '&frac34; lemon juice', 
-        'Muddle 3 cut strawberries in glass', 
-        'Shake ice, then bourbon, and syrup, then add', 
+        '2 oz. bourbon',
+        '&frac34; simple syrup',
+        '&frac34; lemon juice',
+        'Muddle 3 cut strawberries in glass',
+        'Shake ice, then bourbon, and syrup, then add',
         'Top with ice and garnish with strawberry'
-      ] },
+      ]
+    },
     {
       name: 'Suffering Bastard',
       history: 'This is the rare drink that has a definitive and easily researched history: it was invented in Cairo at the Shepherd Hotel by chemist turned bartender Joe Scialom during the Second World War. The bar at the Shepherd had become a sort of de facto officers club where soldiers waiting to cycle back to the front would cool their heels, and this concoction was a favorite hangover cure.',
@@ -122,14 +123,14 @@ export default {
         'Fill with crushed ice and garnish with mint sprig'
       ]
     },
-    { 
-      name: 'Martinez', 
-      history: "The Martinez is one of those old drinks with a lot of stories surrounding it's creation but not much concrete evidence about where it came from. It is widely regarded as the Father of the Martini, or at least had a huge amount of influence on it's creation. ", 
-      recipe: ['1 &frac12 oz. gin', 
-        '1 &frac12; oz. sweet vermouth', 
-        '&frac14; maraschino liqeur', 
+    {
+      name: 'Martinez',
+      history: "The Martinez is one of those old drinks with a lot of stories surrounding it's creation but not much concrete evidence about where it came from. It is widely regarded as the Father of the Martini, or at least had a huge amount of influence on it's creation. ",
+      recipe: ['1 &frac12 oz. gin',
+        '1 &frac12; oz. sweet vermouth',
+        '&frac14; maraschino liqeur',
         '2 dashes orange bitters'
-      ] 
+      ]
     },
     {
       name: 'Tom Collins',
@@ -143,18 +144,19 @@ export default {
         'Garnish with lemon peel and cherry'
       ]
     },
-    { 
-      name: 'Gin-gin Mule', 
-      history: 'Another variation of the popular Moscow Mule, this drink was created by Audrey Saunders in 2000. During the Cocktail Renaissance, gin was re-popularized after a long time being overshadowed by vodka in bars.', 
+    {
+      name: 'Gin-gin Mule',
+      history: 'Another variation of the popular Moscow Mule, this drink was created by Audrey Saunders in 2000. During the Cocktail Renaissance, gin was re-popularized after a long time being overshadowed by vodka in bars.',
       recipe: [
         '1 &frac12; oz. gin',
-        '1 oz. simple syrup', 
-        '&frac34; oz. lime juice', 
+        '1 oz. simple syrup',
+        '&frac34; oz. lime juice',
         '6-8 mint leaves',
         '1 oz. Ginger beer',
         'Muddle mint carefully with ingredients',
         'Shake with ice and strain, top with ginger beer'
-      ] },
+      ]
+    },
     {
       name: 'Gimlet',
       history: "The gimlet originated as remedy and ward against scurvy for British sailors. Sailors drank so much lime juice, they gained the nickname 'limeys'. Of the different methods attempted to preserve the vitmamin C in lime juice, mixing lime juice with alcohol proved to be effective. Later, the mixture of gin, sugar, and lime juice was advertised as a doctor's remedy against the common cold in New York.",
@@ -202,8 +204,8 @@ export default {
       history: "The Negroni is based off the Americano, a cocktail originating in the late 1800s in northern Italy. Popular story tells us that Count Camillo Negroni asked his bartender to strengthen his choice cocktail, the Americano. The bartender replaced the soda with gin and the rest is history. The Negroni is one the most popular cocktails in the modern day.",
       recipe: [
         '1 &frac12; oz. gin',
-        '&frac34 oz. sweet vermouth',
-        '&frac12; oz. Campari',
+        '1 oz. sweet vermouth',
+        '&frac34; oz. Campari',
         'Stir with ice and strain',
         'Garnish with orange peel and cherry'
       ]
@@ -212,32 +214,33 @@ export default {
       name: 'Artillery',
       history: "Not much is known about this drink, but it is highlighted as one that can help accent a gin's herbal qualities. ",
       recipe: [
-        '1 &frac12;  gin', 
-        '1 &frac12; oz. sweet vermouth', 
-        '2-3 dashes of orange bitters', 
+        '1 &frac12;  gin',
+        '1 &frac12; oz. sweet vermouth',
+        '2-3 dashes of orange bitters',
         'Stir with ice and strain']
     },
-    { 
-      name: 'Casino', 
-      history: 'Hugo R. Ensslin served this gin-forward, violette-less Aviation variation while tending bar at the short-lived Wallick Hotel in New York City. His original recipe appeared in the 1917 publication Recipes for Mixed Drinks, which covered every pre-Prohibition concoction he served at his bar. While the book was published to little immediate fanfare, Harry Craddock plucked a majority of Ensslin’s recipes, adding them to his 1930 Savoy Cocktail Book.' , 
+    {
+      name: 'Casino',
+      history: 'Hugo R. Ensslin served this gin-forward, violette-less Aviation variation while tending bar at the short-lived Wallick Hotel in New York City. His original recipe appeared in the 1917 publication Recipes for Mixed Drinks, which covered every pre-Prohibition concoction he served at his bar. While the book was published to little immediate fanfare, Harry Craddock plucked a majority of Ensslin’s recipes, adding them to his 1930 Savoy Cocktail Book.',
       recipe: [
-        '2 oz. gin', 
-        '&frac14; lemon juice', 
-        '&frac14; maraschino liqeur', 
+        '2 oz. gin',
+        '&frac14; lemon juice',
+        '&frac14; maraschino liqeur',
         '2 dashes orange bitters',
         'Shake with ice and strain'
-      ] },
-    { 
-      name: 'Enzoni', 
-      history: "The Enzoni was created by Barman Vincenzo Errico while working at the legendary NYC bar Milk & Honey. Errico created this drink in 2003 and it is a mash up of a Negroni and also a traditional Gin Sour. ", 
+      ]
+    },
+    {
+      name: 'Enzoni',
+      history: "The Enzoni was created by Barman Vincenzo Errico while working at the legendary NYC bar Milk & Honey. Errico created this drink in 2003 and it is a mash up of a Negroni and also a traditional Gin Sour. ",
       recipe: [
-        '1 oz. gin', 
+        '1 oz. gin',
         '1 oz. Campari',
         '&frac34; oz. lemon juice',
         '&frac12; oz. simple syrup',
         '4-5 grapes',
         'Muddle ingredients, then shake with ice and strain'
-      ] 
+      ]
     },
     {
       name: 'Mojito',
@@ -272,16 +275,17 @@ export default {
         'Muddle lime in rum, add cola'
       ]
     },
-    { 
-      name: "Strawberry Sour", 
-      history: 'Not every cocktail has an in-depth history. This is one of them.', 
+    {
+      name: "Strawberry Sour",
+      history: 'Not every cocktail has an in-depth history. This is one of them.',
       recipe: [
-        '2 oz. white rum', 
-        '&frac12; oz. simple syrup', 
-        '&frac34; oz. lime juice', 
-        '3-4 strawberries', 
-        'egg white', 
-        'Shake with ice, then dry shake and fine strain'] },
+        '2 oz. white rum',
+        '&frac12; oz. simple syrup',
+        '&frac34; oz. lime juice',
+        '3-4 strawberries',
+        'egg white',
+        'Shake with ice, then dry shake and fine strain']
+    },
     {
       name: "King's Jubilee",
       history: "The King's Jubilee was featured in the 1937 UKBG's (United Kingdom's Bartender's Guild) Approved Cocktails book. The book features a number of Jubilee cocktails which were created to commemorate King George V's Silver Jubilee (25th anniversary of accession).",
@@ -293,19 +297,46 @@ export default {
         'Garnish with lemon twist'
       ]
     },
-    { 
-      name: "Salty Bird", 
-      history: 'Created by bartender Lauren Schell and promoted by Campari in 2013. ', 
+    {
+      name: "Salty Bird",
+      history: 'Created by bartender Lauren Schell and promoted by Campari in 2013. ',
       recipe: [
         '1 &frac12; oz. white rum',
-        '&frac34; oz. Campari', 
+        '&frac34; oz. Campari',
         '1 &frac12; oz. pineapple juice',
         '&frac12; oz. lime juice',
         '&frac12; oz. simple syrup',
         'Pinch of salt',
         'Shake with ice and strain'
-      ] 
-    }
+      ]
+    },
+    {
+      name: 'Shirley Temple', history: 'Coming soon',
+      recipe: [
+        '1 - 1 1&frac12; oz. Luxardo Cherry Syrup',
+        'Real Sugar Sprite',
+        'Stir syrup and a portion of sprite',
+        'Top off with sprite and add cherries'
+      ]
+    },
+    {
+      name: 'Virgin Mojito', history: 'Created by bartender Lauren Schell and promoted by Campari in 2013. ',
+      recipe: [
+        '10 mint leaves',
+        '1 oz. lime juice',
+        '1 oz honey syrup',
+        'Sparkling water',
+        'Muddle ingredients, add ice, and top with soda water', 
+      ]
+    },
+    {
+      name: 'Clean Mint Julep', history: 'Created by bartender Lauren Schell and promoted by Campari in 2013. ',
+      recipe: [
+        '10 mint leaves',
+        'Coke or strong iced tea',
+        '&frac34; oz. simple syrup'
+      ]
+    },
 
   ]
 };
